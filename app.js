@@ -244,49 +244,101 @@ const GOHAN_MELODY = [
 ];
 
 const EXERCISE_DIALOGUES = {
-    "Deadhang Shoulder Shrugs": {
-        speaker: "Goku",
-        text: "Hey! Keep your arms completely straight during this! Just pull your shoulder blades down and lift your chest. This builds active shoulder stability to support your SLAP tear recovery!"
-    },
-    "Dumbbell External Rotation": {
+    "Neutral-Grip DB Chest Press": {
         speaker: "Vegeta",
-        text: "Keep your elbow pinned to your side! Use a light weight, and rotate your forearm outward slowly. Speed is for amateurs; control is what builds elite Saiyan shoulders!"
+        text: "Press with your palms facing each other to reduce anterior joint strain! Do NOT let your elbows drop below the bench level—keep the shoulders secure!"
     },
-    "Prone Y-T-W Raises": {
-        speaker: "Trunks",
-        text: "Make sure you lie flat and pull your shoulder blades together. Do Y, T, and W positions with your thumbs pointing UP. Keep it slow and painless!"
+    "Chest-Supported T-Bar or DB Row": {
+        speaker: "Gohan",
+        text: "Fully relax your shoulders at the bottom, then pull your elbows back towards your hips. Chest support keeps your spine safe!"
     },
-    "Hollow Body Hold": {
-        speaker: "Goku",
-        text: "Press your lower back firmly into the floor! If your lower back arches, lift your legs higher. This is the foundation for mastering the bodyweight fly!"
-    },
-    "Dumbbell Incline Bench Press": {
+    "Chest Press Machine (Controlled)": {
         speaker: "Vegeta",
-        text: "Listen to me! Set the incline to 30 degrees. Keep the dumbbells at a 45-degree angle to your body, not flared out! Go light and build the tendon base!"
+        text: "Adjust the seat so the handles align with your lower chest. Push in a strict line. Machine stabilization is your shield!"
     },
-    "Chest-to-Bar Pull-Ups": {
+    "Lat Pulldown (Neutral or Underhand Grip)": {
         speaker: "Goku",
-        text: "Pull explosively and touch your chest to the bar! Keep your body tight, no swinging. This builds the power needed to climb over the bar!"
+        text: "Avoid wide overhand pull grips! Pull the bar to your collarbone using a neutral grip to prevent shoulder impingement!"
     },
-    "Dumbbell Lateral Raise": {
+    "Cable Lateral Raises": {
         speaker: "Trunks",
-        text: "Raise the dumbbells slightly in front of your body (in the scapular plane). Never go above shoulder height to avoid pinching the SLAP post-op repair!"
+        text: "Keep the cables slightly in front of you. Lift to chin height, never higher. This protects the repaired SLAP tear!"
     },
-    "Deep Bar Dips": {
+    "Hammer Curls & Rope Pushdown Superset": {
+        speaker: "Goku",
+        text: "Neutral grips build the brachialis muscle and load the triceps safely. Power up your arm base!"
+    },
+    "Barbell Back Squat": {
         speaker: "Vegeta",
-        text: "Don't go too deep yet! Stop when your elbows hit 90 degrees. Lean forward slightly to load the chest and offload the shoulder socket joint!"
+        text: "Brace your core like you're charging a final flash! Keep the spine neutral. Leg drive starts from the glutes!"
     },
-    "Plank to Dolphin": {
+    "Romanian Deadlift (RDL)": {
         speaker: "Goku",
-        text: "Start in a forearm plank, then push your hips up and back into a down-dog shape. This is awesome for serratus activation and shoulder blade health!"
+        text: "Hinge at your hips and lower the bar to mid-shin. Keep your back completely flat to avoid low-back strain!"
     },
-    "Incline Dumbbell Flyes": {
+    "Leg Press Machine": {
         speaker: "Trunks",
-        text: "Open your arms with a slight bend in your elbows. Stop when your elbows align with your torso—never go lower to avoid overstretching the joint capsule!"
+        text: "Place your feet high on the platform to emphasize your glutes and hamstrings while keeping pressure off your lower back!"
+    },
+    "Seated Leg Curls": {
+        speaker: "Gohan",
+        text: "Pin your thighs down securely and pull down slow. Keep a steady tempo to build hamstring thickness!"
+    },
+    "Calf Raises (Standing)": {
+        speaker: "Vegeta",
+        text: "Control the stretch at the bottom for one second before exploding onto your toes. Strong calves support heavy squats!"
+    },
+    "Cable Woodchoppers": {
+        speaker: "Goku",
+        text: "Rotate your torso using your obliques. Keep your arms extended but controlled. Core stability is key!"
+    },
+    "Underhand Grip Chin-Ups": {
+        speaker: "Goku",
+        text: "Underhand grip recruits the biceps and keeps your shoulders in a safer, neutral path compared to standard pull-ups!"
+    },
+    "Incline DB Press (Low 15-30 deg)": {
+        speaker: "Vegeta",
+        text: "Keep the angle low—no more than 30 degrees! A high incline will load your anterior deltoids and risk impingement!"
+    },
+    "Single-Arm DB Row": {
+        speaker: "Trunks",
+        text: "Support yourself on the bench. Pull the dumbbell to your hip, not your chest. Keep your shoulder blade retracted at the top!"
+    },
+    "Cable Crossover (High-to-Low Flyes)": {
+        speaker: "Vegeta",
+        text: "Do not let the cables pull your hands too far back. Squeeze your chest hard at the bottom. Safety first, insect!"
     },
     "Face Pulls": {
         speaker: "Vegeta",
-        text: "Pull the band or rope towards your nose, pulling your hands apart at the end. This builds the upper back muscles to hold your shoulders back!"
+        text: "Pull the rope to your nose while pulling your hands apart at the end. This builds the rear delts and rotator cuffs!"
+    },
+    "DB Incline Bicep Curls & Overhead Tricep Extension": {
+        speaker: "Gohan",
+        text: "Build the arm base! Keep control of the eccentric phase and stay pain-free."
+    },
+    "Conventional Barbell Deadlift": {
+        speaker: "Vegeta",
+        text: "Brace your core, push through the floor, and pull the bar up in a straight line. Focus on lat tension!"
+    },
+    "Bulgarian Split Squat": {
+        speaker: "Trunks",
+        text: "Keep your chest slightly forward. Control the descent to maximize quad and glute loading on the working leg!"
+    },
+    "Leg Extensions": {
+        speaker: "Goku",
+        text: "Fully extend your knees at the top. This isolates the rectus femoris and quad base beautifully!"
+    },
+    "Lying Hamstring Curls": {
+        speaker: "Gohan",
+        text: "Keep your hips flat on the pad as you curl the weight up. Squeeze at the peak contraction!"
+    },
+    "Seated Calf Raises": {
+        speaker: "Vegeta",
+        text: "Slow, disciplined reps. Squeeze at the peak. Do not bounce the weight!"
+    },
+    "Hanging Knee Raises (or Hollow Body)": {
+        speaker: "Goku",
+        text: "Tuck your knees up towards your chest. This deep core flexion is essential for muscle-up transition strength!"
     },
     "Physio Safeguard": {
         speaker: "Vegeta",
@@ -320,10 +372,10 @@ const STORY_SCRIPT = [
 class SaiyanApp {
     constructor() {
         this.state = {
-            powerLevel: 9001,
-            xp: 350,
+            powerLevel: 250,
+            xp: 0,
             xpNeeded: 1000,
-            tier: "Class 3 Warrior",
+            tier: "Low-Class Rehab Warrior",
             profile: {
                 character: "Vegeta",
                 weight: 80.0,
@@ -373,7 +425,7 @@ class SaiyanApp {
         }
 
         // Load saved state if any
-        const saved = localStorage.getItem('saiyan_strength_state_v2');
+        const saved = localStorage.getItem('saiyan_strength_state_v3');
         if (saved) {
             try {
                 this.state = JSON.parse(saved);
@@ -399,7 +451,7 @@ class SaiyanApp {
     }
 
     save() {
-        localStorage.setItem('saiyan_strength_state_v2', JSON.stringify(this.state));
+        localStorage.setItem('saiyan_strength_state_v3', JSON.stringify(this.state));
         this.updateHUD();
     }
 
@@ -643,25 +695,33 @@ class SaiyanApp {
         
         DEFAULT_PROGRAM.forEach((day, index) => {
             const card = document.createElement('div');
-            card.className = "bg-saiyan-card border border-slate-800 rounded-xl p-4 space-y-3";
+            card.className = "bg-saiyan-card border border-slate-800 rounded-xl p-4 space-y-3.5";
+            const boss = BOSSES[index % BOSSES.length];
             card.innerHTML = `
-                <div class="flex justify-between items-start">
-                    <div>
-                        <h3 class="font-bold text-slate-200 text-sm tracking-wide uppercase">${day.dayName}</h3>
-                        <p class="text-[10px] text-slate-400 font-mono mt-0.5">${day.description}</p>
-                    </div>
-                    <button onclick="app.startWorkout(${index})" class="bg-orange-600 hover:bg-orange-500 text-white text-[10px] font-bold px-3 py-1.5 rounded uppercase font-mono tracking-wider transition-colors">
-                        Enter Gravity
-                    </button>
+                <div class="space-y-1">
+                    <h3 class="font-black text-slate-100 text-xs tracking-widest uppercase flex items-center justify-between">
+                        <span>${day.dayName}</span>
+                        <span class="text-[8px] bg-slate-950/80 text-orange-500 border border-orange-500/20 px-1.5 py-0.5 rounded font-mono font-bold">VS ${boss.name.toUpperCase()}</span>
+                    </h3>
+                    <p class="text-xs text-slate-400 font-mono leading-relaxed">${day.description}</p>
                 </div>
                 
-                <div class="space-y-1.5 pt-2 border-t border-slate-900">
+                <div class="space-y-2 pt-2.5 border-t border-slate-900">
                     ${day.exercises.map(ex => `
-                        <button onclick="app.showExerciseDialogue('${ex.name}')" class="w-full flex justify-between items-center text-xs py-1 hover:bg-slate-950/40 rounded px-1 text-left transition-colors">
-                            <span class="text-slate-300 font-medium">${ex.name} <span class="text-[10px] text-slate-500">ℹ️</span></span>
-                            <span class="text-slate-500 font-mono text-[10px]">${ex.target}</span>
+                        <button onclick="app.showExerciseDialogue('${ex.name}')" class="w-full flex justify-between items-center text-sm py-1.5 hover:bg-slate-950/40 rounded px-1.5 text-left transition-colors">
+                            <span class="text-slate-200 font-semibold flex items-center space-x-1.5">
+                                <span>${ex.name}</span>
+                                <span class="text-[8px] bg-slate-950/80 text-slate-500 border border-slate-800/80 px-1 py-0.5 rounded font-mono font-bold">TIPS</span>
+                            </span>
+                            <span class="text-slate-400 font-mono text-xs">${ex.target}</span>
                         </button>
                     `).join('')}
+                </div>
+
+                <div class="pt-2">
+                    <button onclick="app.startWorkout(${index})" class="w-full bg-orange-600 hover:bg-orange-500 text-white text-xs font-black py-2.5 rounded-lg uppercase font-mono tracking-widest transition-all active:scale-98 shadow-md flex items-center justify-center space-x-1.5">
+                        <span>ENTER GRAVITY CHAMBER ☄️</span>
+                    </button>
                 </div>
             `;
             container.appendChild(card);
@@ -745,40 +805,39 @@ class SaiyanApp {
             exDiv.className = "bg-saiyan-card border border-slate-800 rounded-xl p-4 space-y-3";
             exDiv.innerHTML = `
                 <div>
-                    <h3 class="font-bold text-slate-200 text-sm tracking-wide flex items-center justify-between">
-                        <button onclick="app.showExerciseDialogue('${ex.name}')" class="hover:text-orange-400 flex items-center space-x-1 transition-colors text-left">
+                    <h3 class="font-black text-slate-100 text-sm tracking-widest uppercase flex items-center justify-between">
+                        <button onclick="app.showExerciseDialogue('${ex.name}')" class="hover:text-orange-400 flex items-center space-x-1.5 transition-colors text-left">
                             <span>${ex.name}</span>
-                            <span class="text-xs text-slate-500 font-normal">ℹ️</span>
+                            <span class="text-[9px] bg-slate-950/80 text-orange-500 border border-orange-500/20 px-1.5 py-0.5 rounded font-mono font-bold">TIPS</span>
                         </button>
-                        <span class="text-[10px] text-orange-500 font-mono">${ex.target}</span>
+                        <span class="text-xs text-orange-500 font-mono font-bold">${ex.target}</span>
                     </h3>
-                    <p class="text-[10px] text-slate-400 mt-1 leading-normal italic">${ex.description}</p>
                 </div>
                 
-                <div class="space-y-2 mt-2">
-                    <div class="grid grid-cols-4 gap-2 text-[9px] font-mono text-slate-500 uppercase tracking-wider font-bold">
-                        <div>Set</div>
+                <div class="space-y-2 mt-2.5">
+                    <div class="grid grid-cols-4 gap-2 text-[10px] font-mono text-slate-500 uppercase tracking-widest font-black text-center">
+                        <div class="text-left pl-2">Set</div>
                         <div>Target</div>
-                        <div>Weight (kg)</div>
-                        <div class="text-right">Reps</div>
+                        <div>Weight</div>
+                        <div>Reps</div>
                     </div>
                     ${ex.sets.map((set, setIndex) => `
                         <div class="grid grid-cols-4 gap-2 items-center">
-                            <button onclick="app.toggleSetDone(${exIndex}, ${setIndex})" class="w-full text-left py-1 px-2 rounded border transition-colors flex items-center space-x-1.5 text-xs font-mono font-bold ${
+                            <button onclick="app.toggleSetDone(${exIndex}, ${setIndex})" class="w-full text-left py-2 px-2.5 rounded-lg border transition-colors flex items-center space-x-2 text-sm font-mono font-black ${
                                 set.done 
                                 ? 'bg-emerald-950/40 border-emerald-500 text-emerald-400' 
-                                : 'bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700'
+                                : 'bg-slate-900 border-slate-800/80 text-slate-400 hover:border-slate-700'
                             }">
                                 <span class="w-2 h-2 rounded-full border transition-all ${set.done ? 'bg-emerald-400 border-emerald-300' : 'bg-transparent border-slate-600'}"></span>
                                 <span>Set ${setIndex + 1}</span>
                             </button>
-                            <span class="text-xs text-slate-400 font-mono text-center">${set.targetWeight}kg x ${set.targetReps}</span>
-                            <input type="number" step="0.5" placeholder="${set.targetWeight}" value="${set.actualWeight || ''}" 
+                            <span class="text-sm text-slate-300 font-mono text-center font-bold">${set.targetWeight}kg x ${set.targetReps}</span>
+                            <input type="number" step="0.5" placeholder="${set.targetWeight} kg" value="${set.actualWeight || ''}" 
                                 oninput="app.updateSetInput(${exIndex}, ${setIndex}, 'actualWeight', this.value)"
-                                class="bg-slate-900 border border-slate-800 rounded px-2 py-1 text-slate-200 text-xs font-mono focus:border-orange-500 focus:outline-none w-full">
-                            <input type="number" placeholder="${set.targetReps}" value="${set.actualReps || ''}" 
+                                class="bg-slate-950/60 border border-slate-800 rounded-lg px-2 py-2 text-slate-200 text-sm font-mono focus:border-orange-500 focus:outline-none text-center w-full font-black">
+                            <input type="number" placeholder="${set.targetReps} r" value="${set.actualReps || ''}" 
                                 oninput="app.updateSetInput(${exIndex}, ${setIndex}, 'actualReps', this.value)"
-                                class="bg-slate-900 border border-slate-800 rounded px-2 py-1 text-slate-200 text-xs font-mono focus:border-orange-500 focus:outline-none text-right w-full">
+                                class="bg-slate-950/60 border border-slate-800 rounded-lg px-2 py-2 text-slate-200 text-sm font-mono focus:border-orange-500 focus:outline-none text-center w-full font-black">
                         </div>
                     `).join('')}
                 </div>
@@ -875,18 +934,21 @@ class SaiyanApp {
             this.state.xp -= this.state.xpNeeded;
             this.state.powerLevel += 500;
             levelUp = true;
-            
-            if (this.state.powerLevel > 20000) {
-                this.state.tier = "Super Saiyan";
-            } else if (this.state.powerLevel > 15000) {
-                this.state.tier = "Elite Commando";
-            } else if (this.state.powerLevel > 10000) {
-                this.state.tier = "Class 1 Warrior";
-            } else {
-                this.state.tier = "Class 2 Warrior";
-            }
         } else {
-            this.state.powerLevel += 100;
+            this.state.powerLevel += 150;
+        }
+        
+        // Dynamic Tier Thresholds based on Power Level
+        if (this.state.powerLevel >= 9000) {
+            this.state.tier = "Super Saiyan (Rehab Mastered!)";
+        } else if (this.state.powerLevel >= 6000) {
+            this.state.tier = "Class 1 Elite";
+        } else if (this.state.powerLevel >= 3000) {
+            this.state.tier = "Class 2 Combatant";
+        } else if (this.state.powerLevel >= 1000) {
+            this.state.tier = "Class 3 Combatant";
+        } else {
+            this.state.tier = "Low-Class Rehab Warrior";
         }
         
         // Save to history

@@ -810,7 +810,12 @@ class SaiyanApp {
                             <span>${ex.name}</span>
                             <span class="text-[9px] bg-slate-950/80 text-orange-500 border border-orange-500/20 px-1.5 py-0.5 rounded font-mono font-bold">TIPS</span>
                         </button>
-                        <span class="text-xs text-orange-500 font-mono font-bold">${ex.target}</span>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xs text-orange-500 font-mono font-bold">${ex.target}</span>
+                            <button onclick="app.deleteActiveExercise(${exIndex})" class="text-[8px] bg-red-950/60 hover:bg-red-900/60 text-red-400 border border-red-500/20 px-1.5 py-0.5 rounded font-mono font-bold transition-colors">
+                                REMOVE
+                            </button>
+                        </div>
                     </h3>
                 </div>
                 
@@ -894,6 +899,16 @@ class SaiyanApp {
     updateSetInput(exIndex, setIndex, field, value) {
         this.state.activeWorkout.exercises[exIndex].sets[setIndex][field] = value;
         this.save();
+    }
+
+    deleteActiveExercise(exIndex) {
+        if (!this.state.activeWorkout) return;
+        if (confirm("Are you sure you want to remove this exercise from today's training?")) {
+            this.state.activeWorkout.exercises.splice(exIndex, 1);
+            this.save();
+            this.renderActiveExercises();
+            this.updateBattleUI();
+        }
     }
 
     cancelWorkout() {
@@ -1009,9 +1024,14 @@ class SaiyanApp {
                         <h4 class="font-bold text-slate-200 uppercase">${log.title}</h4>
                         <span class="text-[9px] text-slate-500 font-mono">${date}</span>
                     </div>
-                    <span class="bg-orange-950/40 border border-orange-500/30 text-orange-400 font-mono text-[9px] px-2 py-0.5 rounded">
-                        +${log.xpEarned} XP
-                    </span>
+                    <div class="flex items-center space-x-1.5">
+                        <span class="bg-orange-950/40 border border-orange-500/30 text-orange-400 font-mono text-[9px] px-2 py-0.5 rounded">
+                            +${log.xpEarned} XP
+                        </span>
+                        <button onclick="app.deleteHistoryLog('${log.completedAt}')" class="text-red-500 hover:text-red-400 font-mono text-[9px] px-1 bg-slate-950/60 border border-slate-800 rounded transition-colors">
+                            DEL
+                        </button>
+                    </div>
                 </div>
                 <div class="text-[10px] text-slate-400 leading-normal font-mono">
                     ${log.exercises.map(ex => {
@@ -1023,6 +1043,14 @@ class SaiyanApp {
             `;
             container.appendChild(card);
         });
+    }
+
+    deleteHistoryLog(completedAt) {
+        if (confirm("Delete this training session log from your history?")) {
+            this.state.history = this.state.history.filter(log => log.completedAt !== completedAt);
+            this.save();
+            this.renderHistory();
+        }
     }
 
     // Rest Timer Logic

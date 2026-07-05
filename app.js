@@ -389,6 +389,7 @@ class SaiyanApp {
                 hollow: false,
                 explosive: false
             },
+            program: JSON.parse(JSON.stringify(DEFAULT_PROGRAM)),
             history: [],
             activeWorkout: null
         };
@@ -425,7 +426,7 @@ class SaiyanApp {
         }
 
         // Load saved state if any
-        const saved = localStorage.getItem('saiyan_strength_state_v3');
+        const saved = localStorage.getItem('saiyan_strength_state_v4');
         if (saved) {
             try {
                 this.state = JSON.parse(saved);
@@ -451,7 +452,7 @@ class SaiyanApp {
     }
 
     save() {
-        localStorage.setItem('saiyan_strength_state_v3', JSON.stringify(this.state));
+        localStorage.setItem('saiyan_strength_state_v4', JSON.stringify(this.state));
         this.updateHUD();
     }
 
@@ -693,7 +694,8 @@ class SaiyanApp {
         const container = document.getElementById('plan-days-container');
         container.innerHTML = '';
         
-        DEFAULT_PROGRAM.forEach((day, index) => {
+        const program = this.state.program || DEFAULT_PROGRAM;
+        program.forEach((day, index) => {
             const card = document.createElement('div');
             card.className = "bg-saiyan-card border border-slate-800 rounded-xl p-4 space-y-3.5";
             const boss = BOSSES[index % BOSSES.length];
@@ -707,14 +709,19 @@ class SaiyanApp {
                 </div>
                 
                 <div class="space-y-2 pt-2.5 border-t border-slate-900">
-                    ${day.exercises.map(ex => `
-                        <button onclick="app.showExerciseDialogue('${ex.name}')" class="w-full flex justify-between items-center text-sm py-1.5 hover:bg-slate-950/40 rounded px-1.5 text-left transition-colors">
-                            <span class="text-slate-200 font-semibold flex items-center space-x-1.5">
-                                <span>${ex.name}</span>
+                    ${day.exercises.map((ex, exIndex) => `
+                        <div class="w-full flex justify-between items-center text-sm py-1.5 hover:bg-slate-950/40 rounded px-1.5 transition-colors">
+                            <button onclick="app.showExerciseDialogue('${ex.name}')" class="flex items-center space-x-1.5 text-left hover:text-orange-400">
+                                <span class="text-slate-200 font-semibold">${ex.name}</span>
                                 <span class="text-[8px] bg-slate-950/80 text-slate-500 border border-slate-800/80 px-1 py-0.5 rounded font-mono font-bold">TIPS</span>
-                            </span>
-                            <span class="text-slate-400 font-mono text-xs">${ex.target}</span>
-                        </button>
+                            </button>
+                            <div class="flex items-center space-x-2 text-xs font-mono">
+                                <span class="text-slate-400">${ex.target}</span>
+                                <button onclick="app.deletePlanExercise(${index}, ${exIndex})" class="text-[8px] bg-red-950/60 hover:bg-red-900/60 text-red-400 border border-red-500/20 px-1 py-0.5 rounded font-mono font-bold transition-colors">
+                                    DEL
+                                </button>
+                            </div>
+                        </div>
                     `).join('')}
                 </div>
 
@@ -728,6 +735,17 @@ class SaiyanApp {
         });
     }
 
+    deletePlanExercise(dayIndex, exIndex) {
+        if (confirm("Permanently remove this exercise from your training plan calendar?")) {
+            if (!this.state.program) {
+                this.state.program = JSON.parse(JSON.stringify(DEFAULT_PROGRAM));
+            }
+            this.state.program[dayIndex].exercises.splice(exIndex, 1);
+            this.save();
+            this.renderPlan();
+        }
+    }
+
     startWorkout(dayIndex) {
         if (this.state.activeWorkout) {
             if (!confirm("A training session is already active. Abort and start this one instead?")) {
@@ -735,7 +753,8 @@ class SaiyanApp {
             }
         }
         
-        const template = DEFAULT_PROGRAM[dayIndex];
+        const program = this.state.program || DEFAULT_PROGRAM;
+        const template = program[dayIndex];
         // Deep copy template
         const exercises = JSON.parse(JSON.stringify(template.exercises));
         const bossTemplate = BOSSES[dayIndex % BOSSES.length];
@@ -873,14 +892,11 @@ class SaiyanApp {
         }
         
         // Calculate dynamic Boss HP based on progress
-        const totalSets = workout.exercises.reduce((acc, ex) => acc + ex.sets.length, 0);
-        const doneSets = workout.exercises.reduce((acc, ex) => acc + ex.sets.filter(s => s.done).length, 0);
+        this.recalculateBossHP();
         
         if (workout.boss) {
-            workout.boss.hp = Math.max(0, workout.boss.maxHp - Math.round((doneSets / totalSets) * workout.boss.maxHp));
-            
-            // Update battle log message
-            const damage = Math.round((1 / totalSets) * workout.boss.maxHp);
+            const totalSets = workout.exercises.reduce((acc, ex) => acc + ex.sets.length, 0);
+            const damage = totalSets > 0 ? Math.round((1 / totalSets) * workout.boss.maxHp) : 0;
             const logEl = document.getElementById('battle-log');
             if (logEl) {
                 if (workout.boss.hp <= 0) {
@@ -896,6 +912,22 @@ class SaiyanApp {
         this.updateBattleUI();
     }
 
+    recalculateBossHP() {
+        const workout = this.state.activeWorkout;
+        if (!workout) return;
+        
+        const totalSets = workout.exercises.reduce((acc, ex) => acc + ex.sets.length, 0);
+        const doneSets = workout.exercises.reduce((acc, ex) => acc + ex.sets.filter(s => s.done).length, 0);
+        
+        if (workout.boss) {
+            if (totalSets === 0) {
+                workout.boss.hp = 0;
+            } else {
+                workout.boss.hp = Math.max(0, workout.boss.maxHp - Math.round((doneSets / totalSets) * workout.boss.maxHp));
+            }
+        }
+    }
+
     updateSetInput(exIndex, setIndex, field, value) {
         this.state.activeWorkout.exercises[exIndex].sets[setIndex][field] = value;
         this.save();
@@ -905,6 +937,7 @@ class SaiyanApp {
         if (!this.state.activeWorkout) return;
         if (confirm("Are you sure you want to remove this exercise from today's training?")) {
             this.state.activeWorkout.exercises.splice(exIndex, 1);
+            this.recalculateBossHP();
             this.save();
             this.renderActiveExercises();
             this.updateBattleUI();

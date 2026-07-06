@@ -22,47 +22,38 @@ if ('serviceWorker' in navigator) {
 
 // Default Program Split - Scientific 4-Day Recovery/Strength Split
 const DEFAULT_PROGRAM = [
+    // --- SAGA 1: STABILIZATION & SCIENTIFIC ADAPTATION (WEEK 1-2) ---
     {
-        dayName: "Day 1: Upper A (Strength Focus)",
-        description: "Focus: Chest/Back/Shoulders. Physio notes: Controlled range, protect labrum. Neutral grips preferred.",
+        dayName: "Day 1: Upper A (Stabilization Focus)",
+        description: "Focus: Shoulder stabilizer activation & rotator cuff base. Physio notes: Keep motion controlled.",
         exercises: [
-            { name: "Neutral-Grip DB Chest Press", target: "3 sets x 8-10 reps", description: "Neutral grip (palms face each other) reduces anterior labrum strain. Avoid ultra-deep stretch.", sets: [
+            { name: "Cable External Rotations", target: "3 sets x 12-15 reps", description: "Jeff Nippard rotator cuff staple. Core stabilization dynamic warm-up.", sets: [
+                { targetReps: 12, targetWeight: 5, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 12, targetWeight: 5, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 12, targetWeight: 5, done: false, actualWeight: '', actualReps: '' }
+            ]},
+            { name: "Neutral-Grip DB Chest Press", target: "3 sets x 8-10 reps", description: "Neutral grip (palms face each other) reduces anterior labrum strain.", sets: [
                 { targetReps: 8, targetWeight: 20, done: false, actualWeight: '', actualReps: '' },
                 { targetReps: 8, targetWeight: 20, done: false, actualWeight: '', actualReps: '' },
                 { targetReps: 8, targetWeight: 20, done: false, actualWeight: '', actualReps: '' }
             ]},
-            { name: "Chest-Supported T-Bar or DB Row", target: "3 sets x 8-10 reps", description: "Fully supported chest isolates back and protects shoulder from twisting.", sets: [
-                { targetReps: 8, targetWeight: 30, done: false, actualWeight: '', actualReps: '' },
-                { targetReps: 8, targetWeight: 30, done: false, actualWeight: '', actualReps: '' },
-                { targetReps: 8, targetWeight: 30, done: false, actualWeight: '', actualReps: '' }
+            { name: "Chest-Supported Dumbbell Row", target: "3 sets x 10-12 reps", description: "Supported chest isolates back muscles, eliminating torso twist risk.", sets: [
+                { targetReps: 10, targetWeight: 25, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 10, targetWeight: 25, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 10, targetWeight: 25, done: false, actualWeight: '', actualReps: '' }
             ]},
-            { name: "Chest Press Machine (Controlled)", target: "3 sets x 10-12 reps", description: "Fixed plane of motion ensures shoulder safety. Focus on chest contraction.", sets: [
-                { targetReps: 10, targetWeight: 40, done: false, actualWeight: '', actualReps: '' },
-                { targetReps: 10, targetWeight: 40, done: false, actualWeight: '', actualReps: '' },
-                { targetReps: 10, targetWeight: 40, done: false, actualWeight: '', actualReps: '' }
-            ]},
-            { name: "Lat Pulldown (Neutral or Underhand Grip)", target: "3 sets x 10-12 reps", description: "Safer on SLAP tear than wide overhand. Stop just short of absolute full overhead lock.", sets: [
-                { targetReps: 10, targetWeight: 45, done: false, actualWeight: '', actualReps: '' },
-                { targetReps: 10, targetWeight: 45, done: false, actualWeight: '', actualReps: '' },
-                { targetReps: 10, targetWeight: 45, done: false, actualWeight: '', actualReps: '' }
-            ]},
-            { name: "Cable Lateral Raises", target: "3 sets x 12-15 reps", description: "Keep cable plane 30 degrees forward (scaption). Keep height below shoulder line.", sets: [
-                { targetReps: 12, targetWeight: 7.5, done: false, actualWeight: '', actualReps: '' },
-                { targetReps: 12, targetWeight: 7.5, done: false, actualWeight: '', actualReps: '' },
-                { targetReps: 12, targetWeight: 7.5, done: false, actualWeight: '', actualReps: '' }
-            ]},
-            { name: "Hammer Curls & Rope Pushdown Superset", target: "3 sets x 12-15 reps", description: "Biceps and Triceps loading. Keep elbows tucked.", sets: [
-                { targetReps: 12, targetWeight: 12.5, done: false, actualWeight: '', actualReps: '' },
-                { targetReps: 12, targetWeight: 12.5, done: false, actualWeight: '', actualReps: '' },
-                { targetReps: 12, targetWeight: 12.5, done: false, actualWeight: '', actualReps: '' }
+            { name: "Prone Dumbbell Y-Raise", target: "3 sets x 12-15 reps", description: "Scapular mobility and lower trap stabilization. Lift at 45 degrees.", sets: [
+                { targetReps: 12, targetWeight: 4, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 12, targetWeight: 4, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 12, targetWeight: 4, done: false, actualWeight: '', actualReps: '' }
             ]}
         ]
     },
     {
-        dayName: "Day 2: Lower A (Squat/Quad Focus)",
-        description: "Focus: Quads/Glutes/Core. Fully safe for shoulder. Squat power generation.",
+        dayName: "Day 2: Lower A (Leg Base & Core)",
+        description: "Focus: Leg base strength. Fully safe on shoulders.",
         exercises: [
-            { name: "Barbell Back Squat", target: "3 sets x 6-8 reps", description: "Targeting PR recovery. Maintain tight upper back; brace abdominal wall.", sets: [
+            { name: "Barbell Back Squat", target: "3 sets x 6-8 reps", description: "Maintain tight upper back. Solid spine bracing.", sets: [
                 { targetReps: 6, targetWeight: 80, done: false, actualWeight: '', actualReps: '' },
                 { targetReps: 6, targetWeight: 80, done: false, actualWeight: '', actualReps: '' },
                 { targetReps: 6, targetWeight: 80, done: false, actualWeight: '', actualReps: '' }
@@ -72,21 +63,10 @@ const DEFAULT_PROGRAM = [
                 { targetReps: 8, targetWeight: 90, done: false, actualWeight: '', actualReps: '' },
                 { targetReps: 8, targetWeight: 90, done: false, actualWeight: '', actualReps: '' }
             ]},
-            { name: "Leg Press Machine", target: "3 sets x 10-12 reps", description: "Controlled deep range. Safe quad overload.", sets: [
+            { name: "Seated Leg Press", target: "3 sets x 10-12 reps", description: "Controlled deep leg extension. Quad overload.", sets: [
                 { targetReps: 10, targetWeight: 120, done: false, actualWeight: '', actualReps: '' },
                 { targetReps: 10, targetWeight: 120, done: false, actualWeight: '', actualReps: '' },
                 { targetReps: 10, targetWeight: 120, done: false, actualWeight: '', actualReps: '' }
-            ]},
-            { name: "Seated Leg Curls", target: "3 sets x 12-15 reps", description: "Isolate hamstrings safely.", sets: [
-                { targetReps: 12, targetWeight: 40, done: false, actualWeight: '', actualReps: '' },
-                { targetReps: 12, targetWeight: 40, done: false, actualWeight: '', actualReps: '' },
-                { targetReps: 12, targetWeight: 40, done: false, actualWeight: '', actualReps: '' }
-            ]},
-            { name: "Calf Raises (Standing)", target: "4 sets x 12-15 reps", description: "Full stretch and peak contraction. Explode up.", sets: [
-                { targetReps: 12, targetWeight: 50, done: false, actualWeight: '', actualReps: '' },
-                { targetReps: 12, targetWeight: 50, done: false, actualWeight: '', actualReps: '' },
-                { targetReps: 12, targetWeight: 50, done: false, actualWeight: '', actualReps: '' },
-                { targetReps: 12, targetWeight: 50, done: false, actualWeight: '', actualReps: '' }
             ]},
             { name: "Cable Woodchoppers", target: "3 sets x 12-15 reps", description: "Core rotational strength. Keep arms extended but controlled.", sets: [
                 { targetReps: 12, targetWeight: 15, done: false, actualWeight: '', actualReps: '' },
@@ -96,35 +76,74 @@ const DEFAULT_PROGRAM = [
         ]
     },
     {
-        dayName: "Day 3: Upper B (Hypertrophy / Pull Focus)",
-        description: "Focus: Lat width, shoulder health, rear delts. Muscle-up preparation.",
+        dayName: "Day 3: Upper B (Post-Op Hypertrophy)",
+        description: "Focus: Lat width, rear delt activation, scapular health.",
         exercises: [
-            { name: "Underhand Grip Chin-Ups", target: "3 sets x 8-10 reps", description: "Assisted if needed. Great builder for muscle-ups. Safe range of movement.", sets: [
-                { targetReps: 8, targetWeight: 0, done: false, actualWeight: '', actualReps: '' },
-                { targetReps: 8, targetWeight: 0, done: false, actualWeight: '', actualReps: '' },
-                { targetReps: 8, targetWeight: 0, done: false, actualWeight: '', actualReps: '' }
+            { name: "Lat Pulldown (Underhand Grip)", target: "3 sets x 10-12 reps", description: "Safer on SLAP tear. Stop short of full lock at top.", sets: [
+                { targetReps: 10, targetWeight: 45, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 10, targetWeight: 45, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 10, targetWeight: 45, done: false, actualWeight: '', actualReps: '' }
             ]},
-            { name: "Incline DB Press (Low 15-30 deg)", target: "3 sets x 10-12 reps", description: "Neutral or semi-pronated grip. Avoid high incline to save shoulder.", sets: [
-                { targetReps: 10, targetWeight: 18, done: false, actualWeight: '', actualReps: '' },
-                { targetReps: 10, targetWeight: 18, done: false, actualWeight: '', actualReps: '' },
-                { targetReps: 10, targetWeight: 18, done: false, actualWeight: '', actualReps: '' }
-            ]},
-            { name: "Single-Arm DB Row", target: "3 sets x 10-12 reps", description: "Supported bench row. Work on full squeeze at top.", sets: [
-                { targetReps: 10, targetWeight: 22, done: false, actualWeight: '', actualReps: '' },
-                { targetReps: 10, targetWeight: 22, done: false, actualWeight: '', actualReps: '' },
-                { targetReps: 10, targetWeight: 22, done: false, actualWeight: '', actualReps: '' }
-            ]},
-            { name: "Cable Crossover (High-to-Low Flyes)", target: "3 sets x 12-15 reps", description: "Avoid deep shoulder extension at end. Squeeze chest hard at bottom.", sets: [
+            { name: "Face Pulls (External Rotation Focus)", target: "3 sets x 12-15 reps", description: "Jeff Nippard Rear Delt recommendation. Focus on dynamic external rotation.", sets: [
                 { targetReps: 12, targetWeight: 12.5, done: false, actualWeight: '', actualReps: '' },
                 { targetReps: 12, targetWeight: 12.5, done: false, actualWeight: '', actualReps: '' },
                 { targetReps: 12, targetWeight: 12.5, done: false, actualWeight: '', actualReps: '' }
             ]},
-            { name: "Face Pulls", target: "3 sets x 15-20 reps", description: "Crucial rotator cuff prehab. Pull to nose, flare elbows, squeeze rear delts.", sets: [
-                { targetReps: 15, targetWeight: 10, done: false, actualWeight: '', actualReps: '' },
-                { targetReps: 15, targetWeight: 10, done: false, actualWeight: '', actualReps: '' },
-                { targetReps: 15, targetWeight: 10, done: false, actualWeight: '', actualReps: '' }
+            { name: "Cable Lateral Raises", target: "3 sets x 12-15 reps", description: "Constant lateral tension profile. Perform in scaption plane.", sets: [
+                { targetReps: 12, targetWeight: 7.5, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 12, targetWeight: 7.5, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 12, targetWeight: 7.5, done: false, actualWeight: '', actualReps: '' }
             ]},
-            { name: "DB Incline Bicep Curls & Overhead Tricep Extension", target: "3 sets x 12-15 reps", description: "Arm building superset. High control.", sets: [
+            { name: "Hammer Curls", target: "3 sets x 10-12 reps", description: "Load forearm, brachialis, and biceps tendon structures.", sets: [
+                { targetReps: 10, targetWeight: 15, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 10, targetWeight: 15, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 10, targetWeight: 15, done: false, actualWeight: '', actualReps: '' }
+            ]}
+        ]
+    },
+    {
+        dayName: "Day 4: Lower B (Hinges & Posterior Base)",
+        description: "Focus: Deadlifts, hamstrings, glute power.",
+        exercises: [
+            { name: "Barbell Romanian Deadlift", target: "3 sets x 8-10 reps", description: "Slight knee bend. Load hamstrings and glutes.", sets: [
+                { targetReps: 8, targetWeight: 90, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 8, targetWeight: 90, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 8, targetWeight: 90, done: false, actualWeight: '', actualReps: '' }
+            ]},
+            { name: "Bulgarian Split Squat", target: "3 sets x 10-12 reps", description: "Unilateral leg focus. Keep spine stacked.", sets: [
+                { targetReps: 10, targetWeight: 15, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 10, targetWeight: 15, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 10, targetWeight: 15, done: false, actualWeight: '', actualReps: '' }
+            ]},
+            { name: "Seated Calf Raises", target: "4 sets x 12-15 reps", description: "Isolate calf complex. Hold stretch at bottom.", sets: [
+                { targetReps: 12, targetWeight: 40, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 12, targetWeight: 40, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 12, targetWeight: 40, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 12, targetWeight: 40, done: false, actualWeight: '', actualReps: '' }
+            ]}
+        ]
+    },
+    // --- SAGA 2: HYPERTROPHY & CONSTANT TENSION (WEEK 3-4) ---
+    {
+        dayName: "Day 5: Upper C (Cable Tension Focus)",
+        description: "Focus: Continuous tension profile using cables. High hypertrophy stimulus.",
+        exercises: [
+            { name: "Cable Lateral Raises (Behind Back)", target: "3 sets x 12-15 reps", description: "Jeff Nippard recommendation for massive side-delt stretch tension.", sets: [
+                { targetReps: 12, targetWeight: 7.5, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 12, targetWeight: 7.5, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 12, targetWeight: 7.5, done: false, actualWeight: '', actualReps: '' }
+            ]},
+            { name: "Single-Arm Cable Lat Row", target: "3 sets x 10-12 reps", description: "Allows customized rotational pulling plane, very safe on labrum.", sets: [
+                { targetReps: 10, targetWeight: 22.5, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 10, targetWeight: 22.5, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 10, targetWeight: 22.5, done: false, actualWeight: '', actualReps: '' }
+            ]},
+            { name: "Machine Chest Press (Horizontal plane)", target: "3 sets x 8-10 reps", description: "Stable, fixed movement. Push without shoulder instability.", sets: [
+                { targetReps: 8, targetWeight: 45, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 8, targetWeight: 45, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 8, targetWeight: 45, done: false, actualWeight: '', actualReps: '' }
+            ]},
+            { name: "Reverse Cable Flyes", target: "3 sets x 12-15 reps", description: "Isolates posterior delt heads. Constant cable loading.", sets: [
                 { targetReps: 12, targetWeight: 10, done: false, actualWeight: '', actualReps: '' },
                 { targetReps: 12, targetWeight: 10, done: false, actualWeight: '', actualReps: '' },
                 { targetReps: 12, targetWeight: 10, done: false, actualWeight: '', actualReps: '' }
@@ -132,39 +151,167 @@ const DEFAULT_PROGRAM = [
         ]
     },
     {
-        dayName: "Day 4: Lower B (Deadlift / Posterior Focus)",
-        description: "Focus: Hamstrings, Glutes, Explosive power. Muscle-up core prep.",
+        dayName: "Day 6: Lower C (Quad Strength)",
+        description: "Focus: Knee stability and quad progression.",
         exercises: [
-            { name: "Conventional Barbell Deadlift", target: "3 sets x 5 reps", description: "Targeting PR recovery. Fully reset each rep. Back flat, lock lats.", sets: [
-                { targetReps: 5, targetWeight: 110, done: false, actualWeight: '', actualReps: '' },
-                { targetReps: 5, targetWeight: 110, done: false, actualWeight: '', actualReps: '' },
-                { targetReps: 5, targetWeight: 110, done: false, actualWeight: '', actualReps: '' }
+            { name: "Barbell Goblet Squat", target: "3 sets x 8-10 reps", description: "Front loading improves torso posture and decreases lower back load.", sets: [
+                { targetReps: 8, targetWeight: 32, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 8, targetWeight: 32, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 8, targetWeight: 32, done: false, actualWeight: '', actualReps: '' }
             ]},
-            { name: "Bulgarian Split Squat", target: "3 sets x 8-10 reps per leg", description: "Excellent unilateral leg builder. Torso slightly forward to load glutes.", sets: [
-                { targetReps: 8, targetWeight: 15, done: false, actualWeight: '', actualReps: '' },
-                { targetReps: 8, targetWeight: 15, done: false, actualWeight: '', actualReps: '' },
-                { targetReps: 8, targetWeight: 15, done: false, actualWeight: '', actualReps: '' }
+            { name: "Leg Extensions", target: "3 sets x 12-15 reps", description: "Isolate quads. Peak contraction at top.", sets: [
+                { targetReps: 12, targetWeight: 50, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 12, targetWeight: 50, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 12, targetWeight: 50, done: false, actualWeight: '', actualReps: '' }
             ]},
-            { name: "Leg Extensions", target: "3 sets x 12-15 reps", description: "Quad development isolation.", sets: [
-                { targetReps: 12, targetWeight: 45, done: false, actualWeight: '', actualReps: '' },
-                { targetReps: 12, targetWeight: 45, done: false, actualWeight: '', actualReps: '' },
-                { targetReps: 12, targetWeight: 45, done: false, actualWeight: '', actualReps: '' }
+            { name: "Lying Leg Curl", target: "3 sets x 10-12 reps", description: "Posterior hamstring isolate.", sets: [
+                { targetReps: 10, targetWeight: 35, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 10, targetWeight: 35, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 10, targetWeight: 35, done: false, actualWeight: '', actualReps: '' }
+            ]}
+        ]
+    },
+    {
+        dayName: "Day 7: Upper D (Rear Delt & Lat Focus)",
+        description: "Focus: Upper back thickness, posterio-lateral shoulder balance.",
+        exercises: [
+            { name: "Chest-Supported Row (Wide Grip)", target: "3 sets x 8-10 reps", description: "Nippard back builder. Focus on drawing elbows back.", sets: [
+                { targetReps: 8, targetWeight: 30, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 8, targetWeight: 30, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 8, targetWeight: 30, done: false, actualWeight: '', actualReps: '' }
             ]},
-            { name: "Lying Hamstring Curls", target: "3 sets x 12-15 reps", description: "Posterior chain hypertrophy.", sets: [
-                { targetReps: 12, targetWeight: 35, done: false, actualWeight: '', actualReps: '' },
-                { targetReps: 12, targetWeight: 35, done: false, actualWeight: '', actualReps: '' },
-                { targetReps: 12, targetWeight: 35, done: false, actualWeight: '', actualReps: '' }
+            { name: "Reverse Pec Deck Machine", target: "3 sets x 12-15 reps", description: "Stable rear delt fly. Keep chest firmly against pad.", sets: [
+                { targetReps: 12, targetWeight: 40, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 12, targetWeight: 40, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 12, targetWeight: 40, done: false, actualWeight: '', actualReps: '' }
             ]},
-            { name: "Seated Calf Raises", target: "4 sets x 15-20 reps", description: "Soleus focus. Slow stretch, fast contraction.", sets: [
-                { targetReps: 15, targetWeight: 30, done: false, actualWeight: '', actualReps: '' },
-                { targetReps: 15, targetWeight: 30, done: false, actualWeight: '', actualReps: '' },
-                { targetReps: 15, targetWeight: 30, done: false, actualWeight: '', actualReps: '' },
-                { targetReps: 15, targetWeight: 30, done: false, actualWeight: '', actualReps: '' }
+            { name: "Leaning-Away DB Lateral Raise", target: "3 sets x 12-15 reps", description: "Improves dumbbell loading curve at the bottom stretch position.", sets: [
+                { targetReps: 12, targetWeight: 10, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 12, targetWeight: 10, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 12, targetWeight: 10, done: false, actualWeight: '', actualReps: '' }
             ]},
-            { name: "Hanging Knee Raises (or Hollow Body)", target: "3 sets x max reps", description: "Build core flexion necessary for the muscle-up transition.", sets: [
-                { targetReps: 12, targetWeight: 0, done: false, actualWeight: '', actualReps: '' },
-                { targetReps: 12, targetWeight: 0, done: false, actualWeight: '', actualReps: '' },
-                { targetReps: 12, targetWeight: 0, done: false, actualWeight: '', actualReps: '' }
+            { name: "Incline Dumbbell Bicep Curl", target: "3 sets x 10-12 reps", description: "Biceps long head stretch tension. Keep elbows locked.", sets: [
+                { targetReps: 10, targetWeight: 12.5, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 10, targetWeight: 12.5, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 10, targetWeight: 12.5, done: false, actualWeight: '', actualReps: '' }
+            ]}
+        ]
+    },
+    {
+        dayName: "Day 8: Lower D (Hamstring & Posterior Power)",
+        description: "Focus: Glute-ham string adaptation and calves.",
+        exercises: [
+            { name: "Glute Ham Raise (GHR)", target: "3 sets x 8-10 reps", description: "Excellent hamstring overload. High eccentric control.", sets: [
+                { targetReps: 8, targetWeight: 0, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 8, targetWeight: 0, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 8, targetWeight: 0, done: false, actualWeight: '', actualReps: '' }
+            ]},
+            { name: "Barbell Hip Thrust", target: "3 sets x 10-12 reps", description: "Glute isolation without spinal shearing compression.", sets: [
+                { targetReps: 10, targetWeight: 100, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 10, targetWeight: 100, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 10, targetWeight: 100, done: false, actualWeight: '', actualReps: '' }
+            ]},
+            { name: "Standing Calf Raise", target: "4 sets x 12-15 reps", description: "Explode to peak, hold contraction.", sets: [
+                { targetReps: 12, targetWeight: 60, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 12, targetWeight: 60, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 12, targetWeight: 60, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 12, targetWeight: 60, done: false, actualWeight: '', actualReps: '' }
+            ]}
+        ]
+    },
+    // --- SAGA 3: STRENGTH & PROGRESSIVE LOAD (WEEK 5-6) ---
+    {
+        dayName: "Day 9: Upper E (Compound Overhead Strength)",
+        description: "Focus: Front delts and chest compound lifts. Safe plane overhead loading.",
+        exercises: [
+            { name: "Machine Shoulder Press", target: "3 sets x 8-10 reps", description: "Nippard Front Delt builder. Safer than barbell overhead. Keep plane control.", sets: [
+                { targetReps: 8, targetWeight: 35, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 8, targetWeight: 35, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 8, targetWeight: 35, done: false, actualWeight: '', actualReps: '' }
+            ]},
+            { name: "Neutral-Grip Dumbbell Flat Bench", target: "3 sets x 6-8 reps", description: "Heavy chest press. Lower slowly, drive with chest.", sets: [
+                { targetReps: 6, targetWeight: 25, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 6, targetWeight: 25, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 6, targetWeight: 25, done: false, actualWeight: '', actualReps: '' }
+            ]},
+            { name: "Seated Cable Row (Close Grip)", target: "3 sets x 8-10 reps", description: "Back thickness focus. Pull low towards hips.", sets: [
+                { targetReps: 8, targetWeight: 50, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 8, targetWeight: 50, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 8, targetWeight: 50, done: false, actualWeight: '', actualReps: '' }
+            ]},
+            { name: "Cable Lateral Raises", target: "3 sets x 12-15 reps", description: "Constant tension side-delt isolator. Dynamic control.", sets: [
+                { targetReps: 12, targetWeight: 10, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 12, targetWeight: 10, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 12, targetWeight: 10, done: false, actualWeight: '', actualReps: '' }
+            ]}
+        ]
+    },
+    {
+        dayName: "Day 10: Lower E (Squat Strength Run)",
+        description: "Focus: Peak leg power and brace mechanics.",
+        exercises: [
+            { name: "Barbell Back Squat", target: "3 sets x 5 reps", description: "Strength phase. Drive feet through floor.", sets: [
+                { targetReps: 5, targetWeight: 90, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 5, targetWeight: 90, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 5, targetWeight: 90, done: false, actualWeight: '', actualReps: '' }
+            ]},
+            { name: "Romanian Deadlift", target: "3 sets x 6-8 reps", description: "Strength hinge. Maintain flat back.", sets: [
+                { targetReps: 6, targetWeight: 100, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 6, targetWeight: 100, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 6, targetWeight: 100, done: false, actualWeight: '', actualReps: '' }
+            ]},
+            { name: "Leg Press", target: "3 sets x 10 reps", description: "Deep range press. Keep knees aligned.", sets: [
+                { targetReps: 10, targetWeight: 140, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 10, targetWeight: 140, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 10, targetWeight: 140, done: false, actualWeight: '', actualReps: '' }
+            ]}
+        ]
+    },
+    {
+        dayName: "Day 11: Upper F (Volume Hypertrophy Finisher)",
+        description: "Focus: High repetitions, pump focus, advanced shoulder care.",
+        exercises: [
+            { name: "Lat Pulldown (Neutral Grip)", target: "3 sets x 10-12 reps", description: "Bilateral back pull. Stop short of full extension.", sets: [
+                { targetReps: 10, targetWeight: 50, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 10, targetWeight: 50, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 10, targetWeight: 50, done: false, actualWeight: '', actualReps: '' }
+            ]},
+            { name: "Face Pulls with External Rotation", target: "3 sets x 12-15 reps", description: "Focus on pulling to forehead and rotating hands out.", sets: [
+                { targetReps: 12, targetWeight: 15, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 12, targetWeight: 15, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 12, targetWeight: 15, done: false, actualWeight: '', actualReps: '' }
+            ]},
+            { name: "Incline Dumbbell Flyes", target: "3 sets x 12-15 reps", description: "Controlled upper chest isolation. Do not over-stretch shoulder.", sets: [
+                { targetReps: 12, targetWeight: 12.5, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 12, targetWeight: 12.5, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 12, targetWeight: 12.5, done: false, actualWeight: '', actualReps: '' }
+            ]},
+            { name: "Overhead Rope Tricep Extension", target: "3 sets x 12-15 reps", description: "Tricep long head emphasis. Keep elbows facing forward.", sets: [
+                { targetReps: 12, targetWeight: 15, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 12, targetWeight: 15, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 12, targetWeight: 15, done: false, actualWeight: '', actualReps: '' }
+            ]}
+        ]
+    },
+    {
+        dayName: "Day 12: Lower F (Posterior Chain Mastery)",
+        description: "Focus: Glute-ham split and calf endurance.",
+        exercises: [
+            { name: "Barbell Romanian Deadlift", target: "3 sets x 8 reps", description: "Hinge focus. Keep bar close to legs.", sets: [
+                { targetReps: 8, targetWeight: 100, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 8, targetWeight: 100, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 8, targetWeight: 100, done: false, actualWeight: '', actualReps: '' }
+            ]},
+            { name: "Goblet Squats", target: "3 sets x 10-12 reps", description: "Constant tension depth squats.", sets: [
+                { targetReps: 10, targetWeight: 36, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 10, targetWeight: 36, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 10, targetWeight: 36, done: false, actualWeight: '', actualReps: '' }
+            ]},
+            { name: "Single-Leg Calf Raises", target: "4 sets x 10-12 reps", description: "Unilateral calves training. Fully controlled.", sets: [
+                { targetReps: 10, targetWeight: 10, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 10, targetWeight: 10, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 10, targetWeight: 10, done: false, actualWeight: '', actualReps: '' },
+                { targetReps: 10, targetWeight: 10, done: false, actualWeight: '', actualReps: '' }
             ]}
         ]
     }
@@ -426,7 +573,7 @@ class SaiyanApp {
         }
 
         // Load saved state if any
-        const saved = localStorage.getItem('saiyan_strength_state_v4');
+        const saved = localStorage.getItem('saiyan_strength_state_v5');
         if (saved) {
             try {
                 this.state = JSON.parse(saved);
@@ -452,7 +599,7 @@ class SaiyanApp {
     }
 
     save() {
-        localStorage.setItem('saiyan_strength_state_v4', JSON.stringify(this.state));
+        localStorage.setItem('saiyan_strength_state_v5', JSON.stringify(this.state));
         this.updateHUD();
     }
 
@@ -855,13 +1002,13 @@ class SaiyanApp {
                                 <span class="w-2 h-2 rounded-full border transition-all ${set.done ? 'bg-emerald-400 border-emerald-300' : 'bg-transparent border-slate-600'}"></span>
                                 <span>Set ${setIndex + 1}</span>
                             </button>
-                            <span class="text-sm text-slate-300 font-mono text-center font-bold">${set.targetWeight}kg x ${set.targetReps}</span>
-                            <input type="number" step="0.5" placeholder="${set.targetWeight} kg" value="${set.actualWeight || ''}" 
+                            <span id="target-display-${exIndex}-${setIndex}" class="text-sm text-slate-300 font-mono text-center font-bold">${set.targetWeight}kg x ${set.targetReps}</span>
+                            <input type="number" id="input-weight-${exIndex}-${setIndex}" step="0.5" placeholder="${set.targetWeight} kg" value="${set.actualWeight || ''}" 
                                 oninput="app.updateSetInput(${exIndex}, ${setIndex}, 'actualWeight', this.value)"
                                 class="bg-slate-950/60 border border-slate-800 rounded-lg px-2 py-2 text-slate-200 text-sm font-mono focus:border-orange-500 focus:outline-none text-center w-full font-black">
-                            <input type="number" placeholder="${set.targetReps} r" value="${set.actualReps || ''}" 
+                            <input type="number" id="input-reps-${exIndex}-${setIndex}" placeholder="${set.targetReps} r" value="${set.actualReps || ''}" 
                                 oninput="app.updateSetInput(${exIndex}, ${setIndex}, 'actualReps', this.value)"
-                                class="bg-slate-950/60 border border-slate-800 rounded-lg px-2 py-2 text-slate-200 text-sm font-mono focus:border-orange-500 focus:outline-none text-center w-full font-black">
+                                class="bg-slate-950/60 border border-slate-800 rounded-lg px-2 py-2 text-slate-200 text-sm font-mono focus:border-orange-500 focus:outline-none text-center w-full font-black font-black">
                         </div>
                     `).join('')}
                 </div>
@@ -929,7 +1076,46 @@ class SaiyanApp {
     }
 
     updateSetInput(exIndex, setIndex, field, value) {
-        this.state.activeWorkout.exercises[exIndex].sets[setIndex][field] = value;
+        const exercise = this.state.activeWorkout.exercises[exIndex];
+        exercise.sets[setIndex][field] = value;
+        
+        // Dynamic Target Propagator: auto-fill remaining sets if weight is changed
+        if (field === 'actualWeight') {
+            const weightVal = parseFloat(value);
+            if (!isNaN(weightVal) && weightVal > 0) {
+                for (let i = setIndex + 1; i < exercise.sets.length; i++) {
+                    const nextSet = exercise.sets[i];
+                    nextSet.targetWeight = weightVal;
+                    nextSet.actualWeight = value; // Sync model
+                    
+                    // Update DOM directly to avoid focus loss
+                    const wInput = document.getElementById(`input-weight-${exIndex}-${i}`);
+                    if (wInput) wInput.value = value;
+                    
+                    const tDisplay = document.getElementById(`target-display-${exIndex}-${i}`);
+                    if (tDisplay) tDisplay.innerText = `${weightVal}kg x ${nextSet.targetReps}`;
+                }
+            }
+        }
+        
+        // Propagate reps to remaining sets
+        if (field === 'actualReps') {
+            const repsVal = parseInt(value);
+            if (!isNaN(repsVal) && repsVal > 0) {
+                for (let i = setIndex + 1; i < exercise.sets.length; i++) {
+                    const nextSet = exercise.sets[i];
+                    nextSet.targetReps = repsVal;
+                    nextSet.actualReps = value; // Sync model
+                    
+                    const rInput = document.getElementById(`input-reps-${exIndex}-${i}`);
+                    if (rInput) rInput.value = value;
+                    
+                    const tDisplay = document.getElementById(`target-display-${exIndex}-${i}`);
+                    if (tDisplay) tDisplay.innerText = `${nextSet.targetWeight}kg x ${repsVal}`;
+                }
+            }
+        }
+        
         this.save();
     }
 
@@ -997,6 +1183,86 @@ class SaiyanApp {
             this.state.tier = "Class 3 Combatant";
         } else {
             this.state.tier = "Low-Class Rehab Warrior";
+        }
+        
+        // Progressive Overload (2-for-2 Rule & Manual Overrides):
+        if (this.state.program) {
+            const planDayIndex = workout.dayIndex;
+            if (this.state.program[planDayIndex]) {
+                workout.exercises.forEach(completedEx => {
+                    const planEx = this.state.program[planDayIndex].exercises.find(e => e.name === completedEx.name);
+                    if (planEx) {
+                        // 1. Check for manual overrides (did they lift heavier than plan target?)
+                        let manualWeightOverride = 0;
+                        completedEx.sets.forEach((completedSet, setIndex) => {
+                            if (completedSet.done && completedSet.actualWeight && planEx.sets[setIndex]) {
+                                const newWeight = parseFloat(completedSet.actualWeight);
+                                if (!isNaN(newWeight) && newWeight > planEx.sets[setIndex].targetWeight) {
+                                    manualWeightOverride = Math.max(manualWeightOverride, newWeight);
+                                }
+                            }
+                        });
+                        
+                        if (manualWeightOverride > 0) {
+                            // Update baseline target to match their manual weight success
+                            planEx.sets.forEach(s => {
+                                s.targetWeight = manualWeightOverride;
+                            });
+                            console.log(`Manual override: baseline target weight for ${completedEx.name} updated to ${manualWeightOverride}kg`);
+                            return; // Skip 2-for-2 auto-progression since they manually stepped up
+                        }
+
+                        // 2. Clinical 2-for-2 Rule auto-progression
+                        const lastSet = completedEx.sets[completedEx.sets.length - 1];
+                        if (lastSet && lastSet.done && lastSet.actualReps && lastSet.actualWeight) {
+                            const actualReps = parseInt(lastSet.actualReps);
+                            const targetReps = lastSet.targetReps;
+                            
+                            if (actualReps >= targetReps + 2) {
+                                // Check history for the previous time they did this exercise
+                                let consecutiveClear = false;
+                                // Find previous log that contains this exercise
+                                const previousLog = this.state.history.find(log => {
+                                    const pastEx = log.exercises.find(e => e.name === completedEx.name);
+                                    if (pastEx) {
+                                        const pastLastSet = pastEx.sets[pastEx.sets.length - 1];
+                                        if (pastLastSet && pastLastSet.done && pastLastSet.actualReps) {
+                                            return parseInt(pastLastSet.actualReps) >= pastLastSet.targetReps + 2;
+                                        }
+                                    }
+                                    return false;
+                                });
+                                
+                                if (previousLog) {
+                                    consecutiveClear = true;
+                                }
+                                
+                                if (consecutiveClear) {
+                                    const currentTargetWeight = planEx.sets[0].targetWeight;
+                                    let increment = currentTargetWeight * 0.05; // Conservative 5% step
+                                    
+                                    const isLowerBody = completedEx.name.toLowerCase().includes("squat") || 
+                                                        completedEx.name.toLowerCase().includes("press") || 
+                                                        completedEx.name.toLowerCase().includes("deadlift") || 
+                                                        completedEx.name.toLowerCase().includes("thrust");
+                                                        
+                                    if (isLowerBody) {
+                                        increment = Math.max(2.5, Math.round(increment / 2.5) * 2.5);
+                                    } else {
+                                        increment = Math.max(0.5, Math.round(increment / 0.5) * 0.5);
+                                    }
+                                    
+                                    const newTargetWeight = currentTargetWeight + increment;
+                                    planEx.sets.forEach(s => {
+                                        s.targetWeight = newTargetWeight;
+                                    });
+                                    alert(`⚡ CLINICAL PROGRESSIVE OVERLOAD ACQUIRED!\nYou met the NSCA 2-for-2 rehab criteria for ${completedEx.name} (cleared 2+ reps on final set for 2 consecutive sessions).\nTarget weight increased by +${increment}kg to ${newTargetWeight}kg!`);
+                                }
+                            }
+                        }
+                    }
+                });
+            }
         }
         
         // Save to history
@@ -1269,8 +1535,13 @@ class SaiyanApp {
 
     showExerciseDialogue(name) {
         const key = name.trim();
-        const info = EXERCISE_DIALOGUES[key];
-        if (!info) return;
+        let info = EXERCISE_DIALOGUES[key];
+        if (!info) {
+            info = {
+                speaker: "Vegeta",
+                text: `Maintain strict discipline with ${key}! Retract your scapula, control the eccentric phase, and focus on absolute joint stability. Do not fail me!`
+            };
+        }
         
         const overlay = document.getElementById('dialog-overlay');
         const avatarEl = document.getElementById('dialog-character-avatar');

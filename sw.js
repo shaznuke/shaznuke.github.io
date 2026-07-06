@@ -1,4 +1,4 @@
-const CACHE_NAME = 'saiyan-strength-v31';
+const CACHE_NAME = 'saiyan-strength-v34';
 const ASSETS = [
   './',
   './index.html',
